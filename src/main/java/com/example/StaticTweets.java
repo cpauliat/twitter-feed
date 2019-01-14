@@ -54,7 +54,8 @@ public class StaticTweets {
     public Response getItWithCount(@PathParam("search") String search) {
 	    	System.out.println("Searching for tweets containing: " + search);
 	    	final ChunkedOutput<String> output = new ChunkedOutput<String>(String.class);
-	    	runTask(output, search);
+	    	search = "";
+	        runTask(output, search);
 	    	return Response.ok()
 	    			.entity(output)
 	    			.header("Access-Control-Allow-Origin", "*")
